@@ -1,0 +1,40 @@
+<!-- Form for Adding user who buys game card and navigating to PlayComponent after successful addition-->
+
+<div class="jumbotron">
+    <h2>Welcome to Capgemini: 178091</h2>
+    <h2>Welcome to GameCity: Experience the Online Gaming Experience</h2>
+    <form [formGroup]="addForm" novalidate class="form">
+
+      <br><br>
+       
+      <div class="form-group" class="container">
+        <label for="Name">Name:</label>
+        <input formControlName="Name" placeholder="Name" name="Name" class="form-control" id="Name">
+        <div class="alert  alert-danger" *ngIf="addForm.get('Name').hasError('maxlength') && addForm.get('Name').touched">
+          Name is required and should be less than 15 characters.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Address">Address:</label>
+        <input formControlName="Address" placeholder="Address" name="Address" class="form-control" id="Address">
+        <div class="alert  alert-danger" *ngIf="addForm.get('Address').hasError('maxlength') && addForm.get('Address').touched">
+            Address is required and should be less than 15 characters.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="AmountToPay">Amount To Pay:</label>
+        <input formControlName="AmountToPay" placeholder="Amount To Pay" name="AmountToPay" class="form-control" id="AmountToPay">
+        <div class="alert  alert-danger" *ngIf=" addForm.get('AmountToPay').hasError('maxlength') && addForm.get('AmountToPay').touched">
+            Amount To Pay is required and should less than 5 characters.
+        </div>
+      </div>
+      <button class="btn btn-info" [disabled]='addForm.invalid' (click)="BuyCard() ">Buy Card</button>
+     
+      <!-- After clicking BuyCard Button it will navigate to PlayComponent -->
+     
+      <br>
+      <p>Form value: {{ addForm.value | json }}</p>
+    </form>
+  </div>

@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  
+  <h2>     Welcome to GameCity! Your Card Balance is Rs 600</h2>
+  <div class="container" class="table table-striped">  
+      <!-- bootstrap applied to table -->
+    <table class="table" border="1px" >
+      <thead>
+        <tr style="background-color: aquamarine">
+          <th >Id</th>
+          <th>Game Name</th>
+          <th>Price</th>
+          <th>Play Now</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games">
+          <td >{{game.id}}</td>
+          <td>{{game.gameName}}</td>
+          <td>{{game.gamePrice}}</td>
+          <td>
+            <button (click)="PlayNow(game)" class="btn btn-success"> PlayNow</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
